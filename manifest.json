@@ -3,7 +3,8 @@
   "name": "StoryCraft Planner",
   "short_name": "StoryCraft",
   "description": "Your writing companion for planning books and fanfics.",
-  "start_url": ".",
+  "start_url": "/StoryCraft/",
+  "scope": "/StoryCraft/",
   "display": "standalone",
   "background_color": "#f8fafc",
   "theme_color": "#4f46e5",
@@ -11,12 +12,14 @@
     {
       "src": "https://api.iconify.design/solar:pen-new-square-bold-duotone.svg?color=%234f46e5",
       "sizes": "192x192",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     },
     {
       "src": "https://api.iconify.design/solar:pen-new-square-bold-duotone.svg?color=%234f46e5",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }

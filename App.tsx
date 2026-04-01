@@ -173,61 +173,61 @@ const App: React.FC = () => {
   const ThemeToggle = () => (
     <button
       onClick={() => setIsDarkMode(!isDarkMode)}
-      className="p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shadow-sm"
+      className="p-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 rounded-md hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
       title={isDarkMode ? "Светлая тема" : "Темная тема"}
     >
-      {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
     </button>
   );
 
   if (currentProjectId && currentProject) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex flex-col transition-colors duration-300">
-        <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-10 shadow-sm transition-colors">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center space-x-4">
+        <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-10 transition-colors">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div className="flex justify-between items-center h-12">
+              <div className="flex items-center gap-2">
                 <button 
                   onClick={() => setCurrentProjectId(null)}
-                  className="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full transition-colors"
+                  className="p-1 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors"
                 >
-                  <ChevronLeft className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+                  <ChevronLeft className="w-4 h-4 text-slate-500 dark:text-slate-400" />
                 </button>
                 <div className="flex items-center gap-2 truncate">
-                  <Logo className="w-8 h-8 hidden md:block" />
-                  <h1 className="text-xl font-bold text-slate-900 dark:text-white truncate max-w-[150px] md:max-w-md">
+                  <Logo className="w-5 h-5 hidden md:block" />
+                  <h1 className="text-base font-semibold text-slate-900 dark:text-white truncate max-w-[150px] md:max-w-md">
                     {currentProject.title}
                   </h1>
                 </div>
               </div>
               
-              <div className="flex items-center gap-4">
-                <nav className="flex space-x-1 bg-slate-100 dark:bg-slate-900 p-1 rounded-xl">
+              <div className="flex items-center gap-2">
+                <nav className="flex space-x-0.5 bg-slate-100 dark:bg-slate-900 p-0.5 rounded-md">
                   <button
                     onClick={() => setActiveTab('chapters')}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
-                      activeTab === 'chapters' ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
+                    className={`flex items-center space-x-1.5 px-2 py-1 rounded text-xs font-medium transition-all ${
+                      activeTab === 'chapters' ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
                     }`}
                   >
-                    <Book className="w-4 h-4" />
+                    <Book className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">Главы</span>
                   </button>
                   <button
                     onClick={() => setActiveTab('characters')}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
-                      activeTab === 'characters' ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
+                    className={`flex items-center space-x-1.5 px-2 py-1 rounded text-xs font-medium transition-all ${
+                      activeTab === 'characters' ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
                     }`}
                   >
-                    <Users className="w-4 h-4" />
+                    <Users className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">Персонажи</span>
                   </button>
                   <button
                     onClick={() => setActiveTab('world')}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
-                      activeTab === 'world' ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
+                    className={`flex items-center space-x-1.5 px-2 py-1 rounded text-xs font-medium transition-all ${
+                      activeTab === 'world' ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
                     }`}
                   >
-                    <Globe className="w-4 h-4" />
+                    <Globe className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">Мир</span>
                   </button>
                 </nav>
@@ -237,7 +237,7 @@ const App: React.FC = () => {
           </div>
         </header>
 
-        <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+        <main className="flex-1 max-w-7xl mx-auto w-full px-3 sm:px-4 lg:px-6 py-4">
           {activeTab === 'characters' && <CharacterSection project={currentProject} onUpdate={updateProject} />}
           {activeTab === 'chapters' && <ChapterSection project={currentProject} onUpdate={updateProject} />}
           {activeTab === 'world' && <WorldSection project={currentProject} onUpdate={updateProject} />}
@@ -247,7 +247,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-6 px-3 sm:px-4 lg:px-6 transition-colors duration-300">
       <ConfirmModal 
         isOpen={!!projectToDelete}
         title="Удалить проект?"
@@ -257,40 +257,40 @@ const App: React.FC = () => {
       />
 
       <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-          <div className="flex items-center gap-4">
-            <Logo className="w-16 h-16" />
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+          <div className="flex items-center gap-2">
+            <Logo className="w-10 h-10" />
             <div>
-              <h1 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight font-serif">
+              <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-serif">
                 StoryCraft
               </h1>
-              <p className="mt-1 text-lg text-slate-500 dark:text-slate-400">Ваше рабочее пространство для творчества.</p>
+              <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Ваше рабочее пространство для творчества.</p>
             </div>
           </div>
           
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2">
             <ThemeToggle />
             <input type="file" ref={fileInputRef} onChange={handleImport} accept=".json" className="hidden" />
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shadow-sm"
+              className="flex items-center gap-1.5 px-2.5 py-2 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium rounded-md border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
             >
-              <Upload className="w-5 h-5" />
+              <Upload className="w-4 h-4" />
               <span className="hidden sm:inline">Импорт</span>
             </button>
             <button
               onClick={handleExport}
               disabled={projects.length === 0}
-              className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shadow-sm disabled:opacity-50"
+              className="flex items-center gap-1.5 px-2.5 py-2 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium rounded-md border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all disabled:opacity-50"
             >
-              <Download className="w-5 h-5" />
+              <Download className="w-4 h-4" />
               <span className="hidden sm:inline">Экспорт</span>
             </button>
             <button
               onClick={handleOpenCreateModal}
-              className="flex items-center gap-2 px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-200 dark:shadow-indigo-900/20 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all"
+              className="flex items-center gap-1.5 px-3 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition-all"
             >
-              <Plus className="w-5 h-5" />
+              <Plus className="w-4 h-4" />
               <span>Создать</span>
             </button>
           </div>
@@ -298,46 +298,46 @@ const App: React.FC = () => {
 
         {isProjectModalOpen && (
           <div className="fixed inset-0 bg-slate-900/40 dark:bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-md p-8 animate-in fade-in zoom-in duration-200">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-black text-slate-900 dark:text-white">
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-xl w-full max-w-md p-5 animate-in fade-in zoom-in duration-200">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
                   {editingProject ? 'Редактировать проект' : 'Новый проект'}
                 </h2>
-                <button onClick={() => setIsProjectModalOpen(false)} className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors">
-                  <X className="w-5 h-5" />
+                <button onClick={() => setIsProjectModalOpen(false)} className="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md transition-colors">
+                  <X className="w-4 h-4" />
                 </button>
               </div>
-              <div className="space-y-5">
+              <div className="space-y-3">
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Название</label>
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Название</label>
                   <input
                     type="text"
                     value={projectForm.title}
                     onChange={(e) => setProjectForm({ ...projectForm, title: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl focus:ring-4 focus:ring-indigo-100 dark:focus:ring-indigo-900/20 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-md focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/20 focus:border-indigo-500 outline-none transition-all"
                     placeholder="Название вашей истории"
                     autoFocus
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Описание</label>
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Описание</label>
                   <textarea
                     value={projectForm.description}
                     onChange={(e) => setProjectForm({ ...projectForm, description: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl focus:ring-4 focus:ring-indigo-100 dark:focus:ring-indigo-900/20 focus:border-indigo-500 outline-none h-32 resize-none transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-md focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/20 focus:border-indigo-500 outline-none h-28 resize-none transition-all"
                     placeholder="Кратко расскажите, о чем она..."
                   />
                 </div>
-                <div className="flex gap-3 pt-4">
+                <div className="flex gap-2 pt-2">
                   <button
                     onClick={() => setIsProjectModalOpen(false)}
-                    className="flex-1 py-3 text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-colors"
+                    className="flex-1 py-2 text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors"
                   >
                     Отмена
                   </button>
                   <button
                     onClick={handleSaveProject}
-                    className="flex-1 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-100 dark:shadow-indigo-900/20"
+                    className="flex-1 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition-colors"
                   >
                     {editingProject ? 'Сохранить' : 'Создать'}
                   </button>
@@ -348,60 +348,60 @@ const App: React.FC = () => {
         )}
 
         {projects.length === 0 ? (
-          <div className="text-center py-24 bg-white dark:bg-slate-800 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-700 shadow-sm transition-colors">
-            <div className="bg-indigo-50 dark:bg-slate-900 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Logo className="w-16 h-16" />
+          <div className="text-center py-12 bg-white dark:bg-slate-800 rounded-lg border-2 border-dashed border-slate-200 dark:border-slate-700">
+            <div className="bg-indigo-50 dark:bg-slate-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+              <Logo className="w-10 h-10" />
             </div>
-            <h3 className="text-xl font-black text-slate-900 dark:text-white">Пустота — это начало</h3>
-            <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-sm mx-auto">Создайте свой первый проект или импортируйте существующий JSON бэкап.</p>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">Пустота — это начало</h3>
+            <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm max-w-sm mx-auto">Создайте свой первый проект или импортируйте существующий JSON бэкап.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {projects.map(project => (
               <div
                 key={project.id}
                 onClick={() => setCurrentProjectId(project.id)}
-                className="group relative bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:border-indigo-200 dark:hover:border-indigo-800 transition-all cursor-pointer flex flex-col h-full overflow-hidden"
+                className="group relative bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-800 transition-all cursor-pointer flex flex-col h-full overflow-hidden"
               >
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Logo className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" />
-                    <h3 className="text-xl font-black text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Logo className="w-5 h-5 opacity-40 group-hover:opacity-100 transition-opacity" />
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-1">
                       {project.title}
                     </h3>
                   </div>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm line-clamp-3 leading-relaxed">
+                  <p className="text-slate-500 dark:text-slate-400 text-xs line-clamp-3 leading-relaxed">
                     {project.description || 'Нет описания'}
                   </p>
                 </div>
-                <div className="mt-8 pt-5 border-t border-slate-50 dark:border-slate-700 flex items-center justify-between">
-                  <div className="flex items-center gap-4">
+                <div className="mt-4 pt-3 border-t border-slate-50 dark:border-slate-700 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
                     <div className="flex items-center gap-1.5 text-slate-400">
-                      <Users className="w-4 h-4" />
-                      <span className="text-xs font-bold">{project.characters.length}</span>
+                      <Users className="w-3.5 h-3.5" />
+                      <span className="text-xs font-medium">{project.characters.length}</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-400">
-                      <Book className="w-4 h-4" />
-                      <span className="text-xs font-bold">{project.chapters.length}</span>
+                      <Book className="w-3.5 h-3.5" />
+                      <span className="text-xs font-medium">{project.chapters.length}</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-1">
                     <button
                       onClick={(e) => handleOpenEditModal(e, project)}
-                      className="p-2 text-slate-300 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-700 rounded-xl transition-all"
+                      className="p-1.5 text-slate-300 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-700 rounded-md transition-all"
                       title="Редактировать проект"
                     >
-                      <Edit3 className="w-4 h-4" />
+                      <Edit3 className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         setProjectToDelete(project.id);
                       }}
-                      className="p-2 text-slate-300 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-slate-700 rounded-xl transition-all"
+                      className="p-1.5 text-slate-300 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-slate-700 rounded-md transition-all"
                       title="Удалить проект"
                     >
-                      <Trash2 className="w-5 h-5" />
+                      <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
                 </div>

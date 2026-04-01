@@ -135,10 +135,10 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
       />
 
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-black text-slate-900 dark:text-white">Планировщик глав</h2>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Планировщик глав</h2>
         <button
           onClick={() => setIsAddingChapter(true)}
-          className="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all font-bold shadow-lg shadow-indigo-100 dark:shadow-indigo-900/20"
+          className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all font-bold "
         >
           <Plus className="w-4 h-4" />
           <span>Добавить главу</span>
@@ -147,8 +147,8 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
 
       {(isAddingChapter || editingChapterId) && (
         <div className="fixed inset-0 bg-slate-900/50 dark:bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-md p-8 animate-in zoom-in duration-200">
-            <h3 className="text-2xl font-black mb-8 text-slate-900 dark:text-white">{editingChapterId ? 'Редактировать главу' : 'Новая глава'}</h3>
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-xl w-full max-w-md p-5 animate-in zoom-in duration-200">
+            <h3 className="text-2xl font-bold mb-5 text-slate-900 dark:text-white">{editingChapterId ? 'Редактировать главу' : 'Новая глава'}</h3>
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Название</label>
@@ -156,19 +156,19 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                   type="text"
                   value={chapterForm.title}
                   onChange={(e) => setChapterForm({ ...chapterForm, title: e.target.value })}
-                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl focus:ring-4 focus:ring-indigo-500/10 dark:focus:ring-indigo-900/20 focus:border-indigo-500 outline-none transition-all"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-lg focus:ring-4 focus:ring-indigo-500/10 dark:focus:ring-indigo-900/20 focus:border-indigo-500 outline-none transition-all"
                   placeholder="Глава 1: Новое начало"
                   autoFocus
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Цель (знаков)</label>
                   <input
                     type="number"
                     value={chapterForm.goalChars}
                     onChange={(e) => setChapterForm({ ...chapterForm, goalChars: parseInt(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-lg focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all"
                   />
                 </div>
                 <div>
@@ -177,18 +177,18 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                     type="number"
                     value={chapterForm.currentChars}
                     onChange={(e) => setChapterForm({ ...chapterForm, currentChars: parseInt(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-lg focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all"
                   />
                 </div>
               </div>
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-2 pt-3">
                 <button
                   onClick={() => { setIsAddingChapter(false); setEditingChapterId(null); }}
-                  className="flex-1 py-3 text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-colors"
+                  className="flex-1 py-2 text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
                 >Отмена</button>
                 <button
                   onClick={handleSaveChapter}
-                  className="flex-1 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-100 dark:shadow-indigo-900/20"
+                  className="flex-1 py-2 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 "
                 >Сохранить</button>
               </div>
             </div>
@@ -198,8 +198,8 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
 
       {sceneForm.chapterId && (
         <div className="fixed inset-0 bg-slate-900/50 dark:bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-lg p-8 animate-in zoom-in duration-200 overflow-y-auto max-h-[90vh] custom-scrollbar">
-            <h3 className="text-2xl font-black mb-8 text-slate-900 dark:text-white">{sceneForm.scene?.id ? 'Редактировать сцену' : 'Новая сцена'}</h3>
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-xl w-full max-w-lg p-5 animate-in zoom-in duration-200 overflow-y-auto max-h-[90vh] custom-scrollbar">
+            <h3 className="text-2xl font-bold mb-5 text-slate-900 dark:text-white">{sceneForm.scene?.id ? 'Редактировать сцену' : 'Новая сцена'}</h3>
             <div className="space-y-5">
               <div>
                 <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Название сцены</label>
@@ -207,7 +207,7 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                   type="text"
                   value={sceneForm.scene?.title || ''}
                   onChange={(e) => setSceneForm({ ...sceneForm, scene: { ...sceneForm.scene, title: e.target.value } })}
-                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl focus:ring-4 focus:ring-indigo-500/10 dark:focus:ring-indigo-900/20 focus:border-indigo-500 outline-none transition-all"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-lg focus:ring-4 focus:ring-indigo-500/10 dark:focus:ring-indigo-900/20 focus:border-indigo-500 outline-none transition-all"
                   autoFocus
                 />
               </div>
@@ -216,7 +216,7 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                 <textarea
                   value={sceneForm.scene?.description || ''}
                   onChange={(e) => setSceneForm({ ...sceneForm, scene: { ...sceneForm.scene, description: e.target.value } })}
-                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl focus:ring-4 focus:ring-indigo-500/10 outline-none h-28 resize-none"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-lg focus:ring-4 focus:ring-indigo-500/10 outline-none h-28 resize-none"
                 />
               </div>
               <div>
@@ -224,7 +224,7 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                 <select
                   value={sceneForm.scene?.status || SceneStatus.PLANNING}
                   onChange={(e) => setSceneForm({ ...sceneForm, scene: { ...sceneForm.scene, status: e.target.value as SceneStatus } })}
-                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl outline-none"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-lg outline-none"
                 >
                   <option value={SceneStatus.PLANNING}>Планирование</option>
                   <option value={SceneStatus.IN_PROGRESS}>В процессе</option>
@@ -233,7 +233,7 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
               </div>
               <div>
                 <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Персонажи в сцене</label>
-                <div className="flex flex-wrap gap-2 p-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl max-h-32 overflow-y-auto custom-scrollbar">
+                <div className="flex flex-wrap gap-2 p-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg max-h-32 overflow-y-auto custom-scrollbar">
                   {project.characters.length === 0 && <span className="text-slate-400 text-xs py-1">Сначала добавьте персонажей в раздел "Персонажи"</span>}
                   {project.characters.map(char => (
                     <button
@@ -243,7 +243,7 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                         const next = current.includes(char.id) ? current.filter(id => id !== char.id) : [...current, char.id];
                         setSceneForm({ ...sceneForm, scene: { ...sceneForm.scene, characterIds: next } });
                       }}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all ${
                         sceneForm.scene?.characterIds?.includes(char.id)
                           ? 'bg-indigo-600 border-indigo-600 text-white shadow-md'
                           : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-indigo-300'
@@ -254,14 +254,14 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                   ))}
                 </div>
               </div>
-              <div className="flex gap-3 pt-6">
+              <div className="flex gap-2 pt-6">
                 <button
                   onClick={() => setSceneForm({ chapterId: null, scene: null })}
-                  className="flex-1 py-3 text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-colors"
+                  className="flex-1 py-2 text-slate-500 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
                 >Отмена</button>
                 <button
                   onClick={handleSaveScene}
-                  className="flex-1 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700"
+                  className="flex-1 py-2 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700"
                 >Сохранить</button>
               </div>
             </div>
@@ -277,10 +277,10 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
             onDragStart={() => handleDragStart(index)}
             onDragOver={(e) => handleDragOver(e, index)}
             onDragEnd={handleDragEnd}
-            className={`bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm hover:border-slate-300 dark:hover:border-slate-600 transition-all ${draggedIndex === index ? 'opacity-40 scale-[0.98]' : 'opacity-100'}`}
+            className={`bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm hover:border-slate-300 dark:hover:border-slate-600 transition-all ${draggedIndex === index ? 'opacity-40 scale-[0.98]' : 'opacity-100'}`}
           >
             <div className="p-5 flex items-center justify-between cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors" onClick={() => toggleExpand(chapter.id)}>
-              <div className="flex items-center gap-4 flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-1 min-w-0">
                 <div 
                   className="p-1.5 cursor-grab active:cursor-grabbing text-slate-300 hover:text-indigo-500 transition-colors"
                   onClick={e => e.stopPropagation()}
@@ -289,13 +289,13 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                 </div>
                 {expandedChapterIds.has(chapter.id) ? <ChevronDown className="w-5 h-5 text-indigo-500" /> : <ChevronRight className="w-5 h-5 text-slate-400" />}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-3 mb-1.5">
-                    <h3 className="text-lg font-black text-slate-900 dark:text-white truncate">{chapter.title}</h3>
-                    <span className="text-[10px] font-black bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 px-2 py-0.5 rounded-full tracking-wider">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white truncate">{chapter.title}</h3>
+                    <span className="text-[10px] font-bold bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 px-2 py-0.5 rounded-md tracking-wider">
                       {chapter.currentChars} / {chapter.goalChars || 1}
                     </span>
                   </div>
-                  <div className="w-full bg-slate-100 dark:bg-slate-900 h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-slate-100 dark:bg-slate-900 h-2 rounded-md overflow-hidden">
                     <div className={`h-full transition-all duration-700 ${chapter.currentChars >= (chapter.goalChars || 1) ? 'bg-emerald-500' : 'bg-indigo-500'}`}
                       style={{ width: `${Math.min(100, (chapter.currentChars / (chapter.goalChars || 1)) * 100)}%` }}
                     />
@@ -309,7 +309,7 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                     setChapterForm({ title: chapter.title, goalChars: chapter.goalChars, currentChars: chapter.currentChars }); 
                     setEditingChapterId(chapter.id); 
                   }} 
-                  className="p-2 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-white dark:hover:bg-slate-700 rounded-xl transition-all"
+                  className="p-2 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-white dark:hover:bg-slate-700 rounded-lg transition-all"
                 >
                   <Edit3 className="w-4 h-4" />
                 </button>
@@ -318,7 +318,7 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
                     e.stopPropagation(); 
                     setDeleteRequest({ id: chapter.id, type: 'chapter' }); 
                   }} 
-                  className="p-2 text-slate-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-white dark:hover:bg-slate-700 rounded-xl transition-all"
+                  className="p-2 text-slate-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-white dark:hover:bg-slate-700 rounded-lg transition-all"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -328,26 +328,26 @@ const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
             {expandedChapterIds.has(chapter.id) && (
               <div className="border-t border-slate-50 dark:border-slate-700 bg-slate-50/30 dark:bg-slate-900/10 p-5 space-y-4">
                 <div className="flex justify-between items-center px-1">
-                  <h4 className="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Сцены</h4>
-                  <button onClick={() => setSceneForm({ chapterId: chapter.id, scene: { title: '', status: SceneStatus.PLANNING, characterIds: [] } })} className="flex items-center gap-1.5 text-xs font-black text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 transition-colors">
+                  <h4 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Сцены</h4>
+                  <button onClick={() => setSceneForm({ chapterId: chapter.id, scene: { title: '', status: SceneStatus.PLANNING, characterIds: [] } })} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 transition-colors">
                     <Plus className="w-3 h-3" /> Добавить сцену
                   </button>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-3">
-                  {chapter.scenes.length === 0 && <div className="text-center py-8 text-slate-400 dark:text-slate-600 text-sm italic bg-white/50 dark:bg-slate-800/50 border border-dashed border-slate-200 dark:border-slate-700 rounded-2xl">Пока здесь тихо...</div>}
+                <div className="grid grid-cols-1 gap-2">
+                  {chapter.scenes.length === 0 && <div className="text-center py-8 text-slate-400 dark:text-slate-600 text-sm italic bg-white/50 dark:bg-slate-800/50 border border-dashed border-slate-200 dark:border-slate-700 rounded-lg">Пока здесь тихо...</div>}
                   {chapter.scenes.map(scene => {
                     const status = getStatusLabel(scene.status);
                     const StatusIcon = status.icon;
                     return (
-                      <div key={scene.id} className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm group hover:border-indigo-200 dark:hover:border-indigo-800 transition-all">
+                      <div key={scene.id} className="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm group hover:border-indigo-200 dark:hover:border-indigo-800 transition-all">
                         <div className="flex justify-between items-start">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-2">
-                              <span className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-tighter ${status.color}`}>
+                              <span className={`flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-tighter ${status.color}`}>
                                 <StatusIcon className="w-3 h-3" /> {status.text}
                               </span>
-                              <h5 className="font-black text-slate-800 dark:text-slate-200 truncate">{scene.title}</h5>
+                              <h5 className="font-bold text-slate-800 dark:text-slate-200 truncate">{scene.title}</h5>
                             </div>
                             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed whitespace-pre-wrap">{scene.description}</p>
                           </div>

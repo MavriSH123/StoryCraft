@@ -2,19 +2,12 @@ import React, { useState } from 'react';
 import { Project, Chapter, Scene, SceneStatus } from '../types';
 import { Plus, Trash2, Edit3, X, CheckCircle, Clock, ChevronDown, ChevronRight, User, GripVertical } from 'lucide-react';
 import ConfirmModal from './ConfirmModal';
+import { generateId } from '../utils/generateId';
 
 interface Props {
   project: Project;
   onUpdate: (project: Project) => void;
 }
-
-const generateId = () => {
-  try {
-    return crypto.randomUUID();
-  } catch (e) {
-    return Math.random().toString(36).substring(2) + Date.now().toString(36);
-  }
-};
 
 const ChapterSection: React.FC<Props> = ({ project, onUpdate }) => {
   const [isAddingChapter, setIsAddingChapter] = useState(false);

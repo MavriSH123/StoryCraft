@@ -6,6 +6,7 @@ import CharacterSection from './components/CharacterSection';
 import ChapterSection from './components/ChapterSection';
 import WorldSection from './components/WorldSection';
 import ConfirmModal from './components/ConfirmModal';
+import { generateId } from './utils/generateId';
 
 const Logo = ({ className = "w-10 h-10" }: { className?: string }) => (
   <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,14 +21,6 @@ const Logo = ({ className = "w-10 h-10" }: { className?: string }) => (
     <path d="M22 92L28 88" stroke="#3D1E1E" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
-
-const generateId = () => {
-  try {
-    return crypto.randomUUID();
-  } catch (e) {
-    return Math.random().toString(36).substring(2) + Date.now().toString(36);
-  }
-};
 
 const App: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -143,13 +136,34 @@ const App: React.FC = () => {
     reader.onload = (event) => {
       try {
         const imported = JSON.parse(event.target?.result as string);
-        if (Array.isArray(imported)) {
-          setProjects(imported);
-        } else {
-          alert('Ошибка: Файл должен содержать массив проектов.');
+        
+        // Validate imported data structure
+        if (!Array.isArray(imported)) {
+          throw new Error('Файл должен содержать массив проектов');
         }
+        
+        // Validate each project has required fields
+        const validProjects = imported.filter((project: any) => {
+          return project && 
+                 typeof project.id === 'string' && 
+                 typeof project.title === 'string' &&
+                 Array.isArray(project.characters) &&
+                 Array.isArray(project.chapters) &&
+                 Array.isArray(project.worldBlocks);
+        });
+        
+        if (validProjects.length === 0) {
+          throw new Error('Файл не содержит корректных проектов');
+        }
+        
+        if (validProjects.length < imported.length) {
+          console.warn(`Пропущено ${imported.length - validProjects.length} некорректных проектов`);
+        }
+        
+        setProjects(validProjects);
       } catch (err) {
-        alert('Ошибка при чтении JSON файла.');
+        console.error('Import error:', err);
+        alert('Ошибка при чтении JSON файла. Убедитесь, что файл имеет правильный формат.');
       }
       if (fileInputRef.current) fileInputRef.current.value = '';
     };

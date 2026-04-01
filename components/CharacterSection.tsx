@@ -3,19 +3,12 @@ import React, { useState } from 'react';
 import { Project, Character } from '../types';
 import { Plus, User, Trash2, Edit3, Image as ImageIcon, X, Eye } from 'lucide-react';
 import ConfirmModal from './ConfirmModal';
+import { generateId } from '../utils/generateId';
 
 interface Props {
   project: Project;
   onUpdate: (project: Project) => void;
 }
-
-const generateId = () => {
-  try {
-    return crypto.randomUUID();
-  } catch (e) {
-    return Math.random().toString(36).substring(2) + Date.now().toString(36);
-  }
-};
 
 const CharacterSection: React.FC<Props> = ({ project, onUpdate }) => {
   const [isAdding, setIsAdding] = useState(false);
